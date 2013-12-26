@@ -1,0 +1,27 @@
+<h1>Listing gotels</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Room description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gotels.each do |gotel| %>
+  <tr>
+    <td><%= gotel.title %></td>
+    <td><%= gotel.room_description %></td>
+    <td><%= link_to 'Show', gotel %></td>
+    <td><%= link_to 'Edit', edit_gotel_path(gotel) %></td>
+    <td><%= link_to 'Destroy', gotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gotel', new_gotel_path %>
+<br />
+<%= render "shared/register_menu" %>

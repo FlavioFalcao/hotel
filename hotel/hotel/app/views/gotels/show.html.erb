@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @gotel.title %>
+</p>
+
+<p>
+  <b>Room description:</b>
+  <%= @gotel.room_description %>
+</p>
+
+
+<%= link_to 'Edit', edit_gotel_path(@gotel) %> |
+<%= link_to 'Back', gotels_path %>

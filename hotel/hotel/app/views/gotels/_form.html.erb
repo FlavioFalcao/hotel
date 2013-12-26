@@ -1,0 +1,17 @@
+
+<%= simple_form_for @gotel do |f| %>
+  <% if @gotel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gotel.errors.count, "error") %> prohibited this gotel from being saved:</h2>
+
+      <ul>
+      <% @gotel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :title %>
+  <%= f.input :room_description %>
+  <%= f.button :submit %>
+<% end %>
