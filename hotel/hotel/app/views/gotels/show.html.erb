@@ -4,12 +4,22 @@
   <b>Title:</b>
   <%= @gotel.title %>
 </p>
-
+<div>
+  <b>Image:</b>
+  <%= image_tag @gotel.image_url.to_s %>
+</div>
 <p>
   <b>Room description:</b>
   <%= @gotel.room_description %>
 </p>
 
-
+<p>
+	<b>Breakfast included? </b>
+	<%= @gotel.breakfast %>
+</p>
+<p>
+	<b>Price for room </b>
+	<%= number_to_currency (@gotel.price_for_room) %>
+</p>
 <%= link_to 'Edit', edit_gotel_path(@gotel) %> |
 <%= link_to 'Back', gotels_path %>
