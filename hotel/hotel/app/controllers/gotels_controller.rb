@@ -41,7 +41,7 @@ class GotelsController < ApplicationController
   # POST /gotels.json
   def create
     @gotel = Gotel.new(params[:gotel])
-
+    
     respond_to do |format|
       if @gotel.save
         format.html { redirect_to @gotel, notice: 'Gotel was successfully created.' }

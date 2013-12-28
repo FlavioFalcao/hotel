@@ -21,5 +21,17 @@
 	<b>Price for room </b>
 	<%= number_to_currency (@gotel.price_for_room) %>
 </p>
+<p>
+	<%= @gotel.location.country %>
+</p>
+<p>
+	<%= @gotel.location.state %>
+</p>
+<p>
+	<%= @gotel.location.city %>
+</p>
+<p>
+	<%= @gotel.location.street %>
+</p>
 <%= link_to 'Edit', edit_gotel_path(@gotel) %> |
 <%= link_to 'Back', gotels_path %>
