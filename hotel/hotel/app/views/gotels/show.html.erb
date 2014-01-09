@@ -4,6 +4,8 @@
   <b>Title:</b>
   <%= @gotel.title %>
 </p>
+<p><%= @gotel.average_rating %></p>
+
 <div>
   <b>Image:</b>
   <%= image_tag @gotel.image_url.to_s %>
@@ -33,5 +35,12 @@
 <p>
 	<%= @gotel.location.street %>
 </p>
+<%= render "rating" %>
+
+
+<br />
 <%= link_to 'Edit', edit_gotel_path(@gotel) %> |
 <%= link_to 'Back', gotels_path %>
+<br />
+
+<%= render "comments"%>

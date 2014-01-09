@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+<%= simple_form_for Rating.new,:method => :post, :url => ratings_path do |f| %>
+<%= f.input :value, collection: 1..5 %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.hidden_field :gotel_id, :value => @gotel.id %>
+<%= f.submit "Rate"%>
+<% end %>
+<% end %>

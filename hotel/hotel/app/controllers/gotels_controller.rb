@@ -3,7 +3,8 @@ class GotelsController < ApplicationController
   # GET /gotels.json
   def index
     @gotels = Gotel.all
-
+    @top_gotels = Gotel.all.sort_by{|h| -h.average_rating}.first(5)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @gotels }

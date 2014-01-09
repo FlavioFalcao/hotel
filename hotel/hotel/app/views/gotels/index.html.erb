@@ -22,7 +22,12 @@
 </table>
 
 <br />
-
+<% if user_signed_in? %>
 <%= link_to 'New Gotel', new_gotel_path %>
+<% end %>
 <br />
 <%= render "shared/register_menu" %>
+<% @top_gotels.each do |top|%>
+<p><%= top.title %></p>
+<p><%= top.average_rating %></p>
+<% end %>

@@ -1,9 +1,15 @@
 Hotel::Application.routes.draw do
+  post "ratings/create"
+
+  get "ratings/update"
+
   devise_for :users
 
-  resources :gotels
+  resources :gotels do
+    resources :comments
+  end
 
-
+  resources :ratings
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

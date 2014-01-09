@@ -1,0 +1,19 @@
+ <% @gotel.comments.each do |comment| %>
+    <div class="hotel-comment">        
+         <p><i><b><%= comment.username %></b> says:</i></p>
+         <%= comment.content %>        
+         <p><small>posted <%= time_ago_in_words comment.created_at %> ago </small></p><hr />        
+         <% if comment.username == current_user.username %>
+         <%= link_to 'Delete', [@gotel, comment], :method => :delete, confirm: 'Are you shure?' %>                                 
+           <% end %>
+          </div>
+  <% end %>
+  
+<br />
+  <% if user_signed_in? %>
+    <%= form_for [@gotel, @gotel.comments.build] do |f| %>                 
+         <p><%= f.label :content, 'Comments' %></p>
+         <p><%= f.text_area :content, class: "input-xxlarge" %></p>
+         <p><%= f.submit 'Add comment', class: 'btn btn-success' %></p>
+    <% end %>
+   <% end %>
