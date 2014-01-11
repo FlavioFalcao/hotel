@@ -14,7 +14,7 @@ module Hotel
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
+    config.i18n.enforce_available_locales = true
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -41,7 +41,16 @@ module Hotel
 
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
-
+    config.generators do |g|
+     g.test_framework :rspec,
+     :fixtures => true, 
+     :view_specs => false,
+     :helper_specs => false,
+     :routing_specs => false,
+     :controller_specs => true,
+     :request_specs => true
+     g.fixture_replacement :factory_girl, :dir => "spec/factories"
+    end
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types

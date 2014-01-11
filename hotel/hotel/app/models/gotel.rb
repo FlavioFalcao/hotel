@@ -4,7 +4,7 @@ class Gotel < ActiveRecord::Base
   
   
   belongs_to :user
-  has_one :location
+  has_one :location, dependent: :destroy
   has_many :ratings
   has_many :comments
   has_many :raters, :through => :ratings, :source => :users

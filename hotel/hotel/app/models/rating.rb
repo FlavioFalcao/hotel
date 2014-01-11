@@ -3,4 +3,6 @@ class Rating < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :gotel
+  validates :value, presence: true
+  validates :value, format:{ with:/1|2|3|4|5/}
 end
