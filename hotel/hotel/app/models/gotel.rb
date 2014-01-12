@@ -11,7 +11,11 @@ class Gotel < ActiveRecord::Base
   
   accepts_nested_attributes_for :location
   mount_uploader :image, ImageUploader
-  validates_presence_of :title
+  validates :title, length: { maximum: 100 }
+  validates :title, :room_description, :breakfast, :price_for_room, presence: true
+  validates :room_description, length: { maximum:1500 }
+  validates :breakfast, format:{ with:/Yes|No/} 
+  validates :price_for_room, numericality: true
   
   def average_rating
     @value = 0
@@ -20,7 +24,7 @@ class Gotel < ActiveRecord::Base
     end
     @total = self.ratings.size
     @value.to_f / @total.to_f
-end
+  end
 
 
 

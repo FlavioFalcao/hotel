@@ -28,6 +28,5 @@
 <br />
 <%= render "shared/register_menu" %>
 <% @top_gotels.each do |top|%>
-<p><%= top.title %></p>
-<p><%= top.average_rating %></p>
+<p><%= top.title %> <%= top.average_rating %></p> <%= link_to "Show", top %>
 <% end %>

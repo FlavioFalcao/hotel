@@ -12,5 +12,5 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :rated_gotels, :through => :ratings, :source => :gotels 
  
-validates_presence_of :username
+  validates :username, :email,:password, presence: true
 end
